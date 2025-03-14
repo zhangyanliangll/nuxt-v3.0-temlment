@@ -1,0 +1,38 @@
+@use 'sass:list';
+@use 'sass:map';
+@use 'sass:meta';
+
+$breakpoints: (
+  'phone': ( // 手机端
+    320px,
+    480px,
+  ),
+  'pad': ( // ipad
+    481px,
+    768px,
+  ),
+  'notebook': ( // 笔记本
+    769px,
+    1024px,
+  ),
+  'desktop': ( // 电脑
+    1025px,
+    1200px,
+  ),
+  'tv': 1021px, // 电视
+);
+
+@mixin respond-to($breakname) {
+  $bp: map.get($breakpoints, $breakname);
+  @if meta.type-of($bp) == 'list' {
+    $min: list.nth($bp, 1);
+    $max: list.nth($bp, 2);
+    @media (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @media (min-width: $bp) {
+      @content;
+    }
+  }
+}
