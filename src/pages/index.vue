@@ -105,6 +105,7 @@
         <div class="contact">
           <div
             v-for="(item, index) in contactInformation.titleData"
+            :key="index"
             class="contact-item"
           >
             <p class="contact_title">

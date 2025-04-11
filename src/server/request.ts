@@ -106,8 +106,10 @@ class Request {
         }
       }
 
+      const isClient = import.meta.client
+
       const fetchOptions: UseFetchOptions<FetchResponse.Response<T>> = {
-        baseURL: this.baseURL,
+        baseURL: isClient ? this.baseURL : process.env.VITE_TEST_PROXY_IP,
         method,
         query,
         body,
@@ -128,7 +130,7 @@ class Request {
         fetchOptions.responseType = 'blob'
       }
 
-      if (import.meta.client) {
+      if (isClient) {
         // 组件挂载后，使用 $fetch
         const { transform, ...rest } = fetchOptions
         const response = await $fetch(url, rest as Record<string, unknown>)
