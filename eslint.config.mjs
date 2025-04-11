@@ -9,5 +9,7 @@ export default withNuxt({
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
+    '@stylistic/no-tabs': 'off',
+    '@stylistic/no-mixed-spaces-and-tabs': 'off',
   },
 })
