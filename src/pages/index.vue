@@ -10,23 +10,6 @@
     >
       {{ item.title }}
     </div>
-    <!-- 颜色选择器 --->
-    <el-input
-      v-model="input"
-      style="width: 240px"
-    />
-    <el-color-picker v-model="color" />
-    {{ color }}
-    <el-date-picker
-      v-model="date"
-      type="date"
-      value-format="YYYY-MM-DD"
-    />
-    {{ date }}
-    <icon-local-amount
-      w="20"
-      h="20"
-    />
     <div @click="loadData">
       点击
     </div>
@@ -42,14 +25,15 @@ const list = ref<ObjectType[]>([])
 
 const loadData = async () => {
   const { data } = await getBannerListApi()
-  list.value = data.value as ObjectType[]
+  list.value = toValue(data)
+  console.log(list.value, '-=-=-=list.value')
+
+  console.log('data: ', toValue(data))
 }
 
-loadData()
-
-const input = ref()
-const color = ref()
-const date = ref()
+if (import.meta.server) {
+  loadData()
+}
 </script>
 
 <style scoped lang="scss">
