@@ -1,6 +1,6 @@
 <template>
-  <PC class="hidden md:block" />
-  <Phone class="block md:hidden" />
+  <PC class="hidden lg:block" />
+  <Phone class="block lg:hidden" />
 </template>
 
 <script setup>

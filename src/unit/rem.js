@@ -26,7 +26,7 @@ const setRem = () => {
     // console.log("innerWidth", innerWidth, 'fontSize', rem, 'scale', scale);
     // console.log("clientWidth", clientWidth);
     // console.log(window.location)
-    if (clientWidth < 770) {
+    if (clientWidth < 1024) {
       let phatnameslist = window.location.pathname.split('/')
       let srtname = ''
       phatnameslist.splice(0, 2)
