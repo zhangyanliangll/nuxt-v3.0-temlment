@@ -8,6 +8,7 @@ export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   srcDir: 'src/',
   modules: [
+    '@vant/nuxt',
     '@nuxt/eslint',
     '@pinia/nuxt',
     '@unocss/nuxt',
@@ -19,6 +20,9 @@ export default defineNuxtConfig({
   css: ['@unocss/reset/normalize.css'],
   unocss: {
     configFile: 'uno.config.ts',
+  },
+  vant: {
+    /** Options */
   },
   elementPlus: {
     importStyle: 'scss',
@@ -52,7 +56,7 @@ export default defineNuxtConfig({
   postcss: {
     plugins: {
       'postcss-pxtorem': {
-        rootValue: 16, // 1rem的基准值, 对应设计稿中1rem的值
+        rootValue: 42, // 1rem的基准值, 对应设计稿中1rem的值
         propList: ['*'], // 对所有属性应用转换
         unitPrecision: 5, // 允许REM单位增长到的十进制数
         selectorBlackList: [], // 忽略的选择器

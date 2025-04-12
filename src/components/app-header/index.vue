@@ -13,10 +13,6 @@ defineOptions({
 <style lang="scss">
 .app-header {
   background: #fff;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 </style>

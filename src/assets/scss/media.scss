@@ -3,12 +3,12 @@
 @use 'sass:meta';
 
 $breakpoints: (
-  'phone': ( // 手机端
-    320px,
-    480px,
-  ),
+  // 'phone': ( // 手机端
+  //   320px,
+  //   480px,
+  // ),
   'pad': ( // ipad
-    481px,
+    320px,
     768px,
   ),
   'notebook': ( // 笔记本

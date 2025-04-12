@@ -3,4 +3,5 @@
 @use 'variables.scss' as *;
 @use 'transition.scss' as *;
 @forward 'common.scss';
-@forward 'media.scss'; 
+@forward 'media.scss';
+@use './phone/reset.scss' as *;

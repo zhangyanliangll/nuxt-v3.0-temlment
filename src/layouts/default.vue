@@ -13,7 +13,10 @@ const classNames = computed(() => {
 <template>
   <main>
     <AppHeader />
-    <div :class="classNames">
+    <div
+      :class="classNames"
+      class="w-full h-full"
+    >
       <slot />
     </div>
   </main>

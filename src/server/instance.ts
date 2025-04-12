@@ -4,7 +4,6 @@ import { getHeader } from './helpers'
 import {
   API_BASE_URL,
   API_HEADERS,
-  CONFIRM_ERROR_MSG_CODE,
   ERROR_STATUS,
   REQUEST_TIMEOUT,
 } from '~/config'
@@ -29,7 +28,7 @@ const Https = new Request({
     onResponse({ response }: { response: IResponse }) {
       if (response.status === 200) {
         const data = response._data
-        if (!CONFIRM_ERROR_MSG_CODE.includes(data.code) && ![200, 0].includes(Number(data.code))) {
+        if (!data.success) {
           ElNotification({
             title: data.message,
             message: h(

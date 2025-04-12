@@ -11,6 +11,10 @@
 import useRouteTransitionName from '~/composables/transitions'
 import useKeepalive from '~/composables/keepalive'
 
+if (import.meta.client) {
+  import('@/unit/rem')
+}
+
 useHead({
   title: '',
 })
