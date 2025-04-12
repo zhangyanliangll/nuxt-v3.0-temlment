@@ -127,6 +127,7 @@ export default defineNuxtConfig({
     },
     server: {
       open: true,
+      allowedHosts: ['zhangyanliang.s7.tunnelfrp.com', 'localhost'],
     },
   },
 })
