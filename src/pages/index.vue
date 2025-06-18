@@ -11,29 +11,30 @@
       {{ item.title }}
     </div>
     <div @click="loadData">
-      点击
+      点击 {{ counter }}
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
+import { useLocalStorage } from '@vueuse/core'
+
 import { getBannerListApi } from '~/apis/common'
 
 const { t } = useI18n()
 
-const list = ref<ObjectType[]>([])
+const counter = useLocalStorage('counter', 0)
 
 const loadData = async () => {
+  counter.value++
+  await getBannerListApi()
+}
+
+const { data: list } = useAsyncData<ObjectType[]>('bannerList', async () => {
   const { data } = await getBannerListApi()
-  list.value = toValue(data)
-  console.log(list.value, '-=-=-=list.value')
-
-  console.log('data: ', toValue(data))
-}
-
-if (import.meta.server) {
-  loadData()
-}
+  console.log('data: ', data)
+  return Array.isArray(data) ? data : []
+})
 </script>
 
 <style scoped lang="scss">

@@ -7,6 +7,10 @@ export default defineNuxtConfig({
   ssr: true,
   compatibilityDate: '2024-04-03',
   srcDir: 'src/',
+  alias: {
+    '#internal': resolve(__dirname, '.nuxt/dist/server'),
+    '@': resolve(__dirname, './src'),
+  },
   modules: [
     '@nuxt/eslint',
     '@pinia/nuxt',
@@ -15,8 +19,15 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxtjs/i18n',
     '@element-plus/nuxt',
+    'nuxt-swiper',
   ],
-  css: ['@unocss/reset/normalize.css'],
+  css: [
+    '@unocss/reset/normalize.css',
+    'swiper/css',
+    'swiper/css/navigation',
+    'swiper/css/pagination',
+    'swiper/css/scrollbar',
+  ],
   unocss: {
     configFile: 'uno.config.ts',
   },
@@ -82,6 +93,9 @@ export default defineNuxtConfig({
       },
     ],
     defaultLocale: 'zh',
+    bundle: {
+      optimizeTranslationDirective: false,
+    },
     strategy: 'prefix_except_default',
     langDir: resolve(__dirname, './src/locales/'),
     // 可选配置
@@ -99,7 +113,13 @@ export default defineNuxtConfig({
   },
   vite: {
     optimizeDeps: {
-      include: ['dayjs', 'axios'],
+      include: [
+        'dayjs',
+        'md5',
+        'qs',
+        'form-data',
+        'element-plus',
+      ],
       exclude: [],
     },
     plugins: [svgLoader()],
