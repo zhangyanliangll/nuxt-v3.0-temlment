@@ -121,7 +121,7 @@ class Request {
         transform: isOriginalData
           ? undefined
           : (response) => {
-              return response?.result
+              return response?.result || response || null
             },
       }
 
@@ -139,9 +139,14 @@ class Request {
         } as any
       }
 
+      // 服务端渲染时，也返回相同结构
       const response = await useFetch<FetchResponse.Response<T>>(url, fetchOptions)
 
-      return response as unknown as AsyncData<
+      return {
+        data: response.data,
+        error: response.error,
+        pending: response.pending,
+      } as unknown as AsyncData<
         FetchResponse.Response<T> | T | Blob | null,
         Error | null
       >

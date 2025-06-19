@@ -30,9 +30,9 @@ const loadData = async () => {
   await getBannerListApi()
 }
 
-const { data: list } = useAsyncData<ObjectType[]>('bannerList', async () => {
-  const { data } = await getBannerListApi()
-  return Array.isArray(data) ? data : []
+const { data: list } = useAsyncData('bannerList', async () => {
+  const res = await getBannerListApi()
+  return res.data.value
 })
 </script>
 
