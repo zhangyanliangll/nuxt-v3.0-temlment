@@ -1,14 +1,6 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  /** 应用名称 */
-  readonly VITE_APP_TITLE: string
-  /** 应用描述 */
-  readonly VITE_APP_DESC: string
-  /** 应用图标前缀 */
-  readonly VITE_ICON_PREFIX: string
-  /** 应用图标本地前缀 */
-  readonly VITE_ICON_LOCAL_PREFIX: string
   /** 应用API基础路径 */
   readonly VITE_API_BASE_URL: string
   /** 应用上传API路径 */

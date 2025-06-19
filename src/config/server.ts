@@ -1,8 +1,8 @@
 // api域名
-export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+export const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || ''
 
 // api 上传文件域名
-export const API_UPLOAD_URL = import.meta.env.VITE_API_UPLOAD_URL
+export const API_UPLOAD_URL = import.meta.env.VITE_API_UPLOAD_URL || ''
 
 /** 接口请求公共参数 */
 export const QUERY_INFO_CONFIG = {

@@ -1,17 +1,23 @@
-import type { NitroOptions } from 'nitropack'
+import type { ProxyServerOptions } from 'httpxy'
 
-export default (): NitroOptions['devProxy'] => {
+type Rewrite = (path: string) => string
+
+interface IProxyServerOptions extends ProxyServerOptions {
+  rewrite: Rewrite
+}
+
+export default (): Record<string, IProxyServerOptions> => {
   return {
     // 配置代理服务 --- 开发环境
     '/api/test': {
-      target: process.env.VITE_TEST_PROXY_IP,
+      target: 'http://10.0.17.195:32000',
       changeOrigin: true,
-      prependPath: true,
+      rewrite: (path: string) => path.replace(/^\/api\/test/, ''),
     },
     '/api': {
-      target: process.env.VITE_TEST_PROXY_IP,
+      target: 'http://10.0.17.195:32000',
       changeOrigin: true,
-      prependPath: true,
+      rewrite: (path: string) => path.replace(/^\/api/, ''),
     },
   }
 }

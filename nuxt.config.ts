@@ -53,7 +53,7 @@ export default defineNuxtConfig({
   },
   svgo: {
     autoImportPath: './assets/svg/',
-    componentPrefix: process.env.VITE_ICON_LOCAL_PREFIX,
+    componentPrefix: 'icon-local',
   },
   eslint: {
     config: {
@@ -111,6 +111,11 @@ export default defineNuxtConfig({
       ...createDevServerConfig(),
     },
   },
+  devServer: {
+    port: Number(import.meta.env.VITE_PORT),
+    host: '0.0.0.0',
+    https: false,
+  },
   vite: {
     optimizeDeps: {
       include: [
@@ -140,9 +145,6 @@ export default defineNuxtConfig({
           drop_debugger: true,
         },
       },
-    },
-    server: {
-      open: true,
     },
   },
 })

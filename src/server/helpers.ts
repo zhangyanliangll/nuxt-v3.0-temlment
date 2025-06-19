@@ -9,7 +9,7 @@ export function getToken() {
 export function getHeader() {
   // 请求时间
   const timestamp = new Date().getTime().toString()
-  const token = getToken()
+  const token = getToken() || 'b290c0a7425f4b0cacf22dc905584ec7'
   const headers: Record<string, string> = {
     'X-SOURCE-KEY': 'nuxt-website',
     'X-SOURCE-SIGN': md5(`${timestamp}_${MD5_KEY}_${token}`),
