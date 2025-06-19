@@ -34,6 +34,7 @@ const { data: list } = useAsyncData('bannerList', async () => {
   const res = await getBannerListApi()
   return res.data.value
 })
+console.log('-----------list: ', list.value)
 </script>
 
 <style scoped lang="scss">

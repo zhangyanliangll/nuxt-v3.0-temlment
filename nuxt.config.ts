@@ -123,7 +123,6 @@ export default defineNuxtConfig({
         'md5',
         'qs',
         'form-data',
-        'element-plus',
       ],
       exclude: [],
     },
