@@ -1,6 +1,8 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
+  /** 应用开发环境代理IP */
+  readonly VITE_DEV_PROXY_IP: string
   /** 应用API基础路径 */
   readonly VITE_API_BASE_URL: string
   /** 应用上传API路径 */

@@ -10,12 +10,12 @@ export default (): Record<string, IProxyServerOptions> => {
   return {
     // 配置代理服务 --- 开发环境
     '/api/test': {
-      target: 'http://10.0.17.195:32000',
+      target: import.meta.env.VITE_DEV_PROXY_IP,
       changeOrigin: true,
       rewrite: (path: string) => path.replace(/^\/api\/test/, ''),
     },
     '/api': {
-      target: 'http://10.0.17.195:32000',
+      target: import.meta.env.VITE_DEV_PROXY_IP,
       changeOrigin: true,
       rewrite: (path: string) => path.replace(/^\/api/, ''),
     },

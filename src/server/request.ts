@@ -109,7 +109,7 @@ class Request {
       const isClient = import.meta.client
 
       const fetchOptions: UseFetchOptions<FetchResponse.Response<T>> = {
-        baseURL: isClient ? this.baseURL : process.env.VITE_TEST_PROXY_IP,
+        baseURL: isClient ? this.baseURL : process.env.VITE_DEV_PROXY_IP || '',
         method,
         query,
         body,
