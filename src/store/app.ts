@@ -1,7 +1,16 @@
 export const useAppStore = defineStore(
   'app',
   () => {
-    return {}
+    const locale = ref('zh')
+
+    const setLocale = (lang: string) => {
+      locale.value = lang
+    }
+
+    return {
+      locale,
+      setLocale,
+    }
   },
   {
     persist: {

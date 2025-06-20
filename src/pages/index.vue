@@ -18,15 +18,19 @@
 
 <script setup lang="ts">
 import { useLocalStorage } from '@vueuse/core'
-
+import { useAppStore } from '~/store/app'
 import { getBannerListApi } from '~/apis/common'
 
 const { t } = useI18n()
+
+const appStore = useAppStore()
 
 const counter = useLocalStorage('counter', 0)
 
 const loadData = async () => {
   counter.value++
+  console.log('-----------appStore.locale: ', appStore.locale)
+  appStore.setLocale('en')
   await getBannerListApi()
 }
 
