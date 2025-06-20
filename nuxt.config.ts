@@ -14,6 +14,7 @@ export default defineNuxtConfig({
   modules: [
     '@nuxt/eslint',
     '@pinia/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
     '@unocss/nuxt',
     'nuxt-svgo',
     '@nuxt/image',
@@ -72,6 +73,9 @@ export default defineNuxtConfig({
         minPixelValue: 0, // 最小的像素值转换为rem
       },
     },
+  },
+  imports: {
+    presets: [],
   },
   devtools: {
     enabled: true,
